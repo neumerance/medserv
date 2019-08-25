@@ -1,0 +1,22 @@
+<table class="table table-sm table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Birtdate</th>
+      <th>Contact</th>
+      <th>Address</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @clients.any? %>
+      <% @clients.each do |client| %>
+        <%= render partial: 'table_row', locals: { client: client } %>
+      <% end %>
+    <% else %>
+    <tr>
+      <td colspan="5">No records yet.</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

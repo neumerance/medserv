@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-between">
+  <div>
+    <h1>Client</h1>
+  </div>
+  <div>
+    <%=
+      link_to 'create',
+      url_for(action: :new),
+      class: 'btn btn-info',
+      remote: true, method: :get,
+      data: { disable_with: 'Please wait...' }
+    %>
+  </div>
+</div>
+<div id="clientsContainer">
+  <%= render partial: 'table' %>
+</div>
+<div id="modalContainer">
+</div>

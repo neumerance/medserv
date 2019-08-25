@@ -1,0 +1,13 @@
+<% if @client.errors.any? %>
+  $.notify(
+    "<%= @client.errors.full_messages.join('\n').html_safe %>",
+    'error'
+  );
+<% else %>
+  $('#clientsContainer table tbody').prepend('<%= escape_javascript(render partial: 'table_row', locals: { client: @client }) %>')
+  $('#clientModal').modal('hide');
+  $.notify(
+    'Created a new client',
+    'success'
+  );
+<% end %>

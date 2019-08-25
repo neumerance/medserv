@@ -1,0 +1,10 @@
+<tr id="client-<%= client.id %>">
+  <td><%= client.name %></td>
+  <td><%= client.birthdate %></td>
+  <td><%= client.contact_number %></td>
+  <td><%= client.address %></td>
+  <td>
+    <%= link_to 'Details', url_for(action: :show, id: client.id), class: 'btn btn-sm btn-success' %>
+    <%= link_to 'Edit', url_for(action: :edit, id: client.id), class: 'btn btn-sm btn-default', remote: true %>
+  </td>
+</tr>

@@ -1,0 +1,15 @@
+<% if @client.errors.any? %>
+  $.notify(
+    "<%= @client.errors.full_messages.join('\n').html_safe %>",
+    'error'
+  );
+<% else %>
+  $('#clientsContainer table tbody').find('#client-<%= @client.id %>').replaceWith(
+    '<%= escape_javascript(render partial: 'table_row', locals: { client: @client }) %>'
+  )
+  $('#clientModal').modal('hide');
+  $.notify(
+    'Client <%= @client.name.titleize %> has been updated',
+    'success'
+  );
+<% end %>
