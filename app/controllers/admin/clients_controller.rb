@@ -1,6 +1,12 @@
 class Admin::ClientsController < ApplicationController
+  before_action :set_client, only: [:show, :edit, :update]
+
   def index
     @clients = Client.all.order('created_at ASC')
+  end
+
+  def show
+    @title = "Client #{@client.name.titleize}"
   end
 
   def new
@@ -14,16 +20,18 @@ class Admin::ClientsController < ApplicationController
   end
 
   def edit
-    @client = Client.find(params[:id])
     @title = "Updating #{@client.name.titleize}"
   end
 
   def update
-    @client = Client.find(params[:id])
     @client.update_attributes(allowed_params)
   end
 
   private
+
+  def set_client
+    @client = Client.find(params[:id])
+  end
 
   def allowed_params
     params.require(:client).permit!

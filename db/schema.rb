@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_112350) do
     t.integer "systolic"
     t.integer "diastolic"
     t.integer "heart_rate"
+    t.integer "weight"
     t.text "findings"
     t.string "remarks"
     t.datetime "created_at", null: false
