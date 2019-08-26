@@ -1,14 +1,14 @@
 <div class="form-group">
   <%= f.label :name %>
-  <%= f.text_field :name, placeholder: 'juan_dela@cruz.com', class: 'form-control' %>
+  <%= f.text_field :name, placeholder: 'Juan Dela Cruz', class: 'form-control' %>
 </div>
 <div class="form-group">
   <%= f.label :birthdate %>
-  <%= f.text_field :birthdate, placeholder: '2014-04-15', class: 'form-control' %>
+  <%= f.text_field :birthdate, placeholder: '2014-04-15', class: 'form-control date' %>
 </div>
 <div class="form-group">
   <%= f.label :contact_number %>
-  <%= f.text_field :contact_number, placeholder: '+65 8814 7876', class: 'form-control' %>
+  <%= f.text_field :contact_number, placeholder: '+65 8814-7876', class: 'form-control phone' %>
 </div>
 <div class="form-group">
   <%= f.label :occupation %>
@@ -18,3 +18,9 @@
   <%= f.label :address %>
   <%= f.text_field :address, placeholder: '#8 Commonwealth Lane 24434', class: 'form-control' %>
 </div>
+<script>
+  $(document).ready(function() {
+    $('input.date').mask('0000-00-00', { placeholder: "____-__-__" });
+    $('input.phone').mask('0000-0000', { placeholder: "____-____" });
+  });
+</script>
