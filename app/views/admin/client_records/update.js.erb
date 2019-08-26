@@ -1,0 +1,24 @@
+<% if @client_record.errors.any? %>
+  $.notify(
+    "<%= @client_record.errors.full_messages.join('\n').html_safe %>",
+    'error'
+  );
+<% else %>
+  $('#clientRecords tbody').
+  find('.client-record-<%= @client_record.id %>').
+  remove()
+
+  $('#clientRecords tbody').
+  prepend(
+    '<%=
+      escape_javascript(
+        render partial: 'admin/client_records/table_row',
+        locals: { cr: @client_record, crs: @client.client_records }
+      )
+    %>')
+  $('#clientRecordModal').modal('hide');
+  $.notify(
+    'Record has been updated',
+    'success'
+  );
+<% end %>

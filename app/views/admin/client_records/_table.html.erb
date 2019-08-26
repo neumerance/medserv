@@ -1,0 +1,37 @@
+ <%=
+  link_to 'Create New Record',
+  new_admin_client_client_record_path(client_id: client.id),
+  class: 'btn btn-info mb-3',
+  remote: true, method: :get,
+  data: { disable_with: 'Please wait...' }
+%>
+<table id="clientRecords" class="table table-sm table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>
+        Blood Pressure
+      </th>
+      <th>
+        Heart Rate
+      </th>
+      <th>
+        Weight
+      </th>
+      <th>
+        Date Recorded
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if client.client_records.any? %>
+      <% client.client_records.order('created_at DESC').each do |cr| %>
+        <%= render partial: 'admin/client_records/table_row', locals: { cr: cr, crs: client.client_records } %>
+      <% end %>
+    <% else %>
+      <tr>
+        <td class="text-center" colspan="4">No records yet.</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

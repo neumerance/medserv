@@ -1,0 +1,20 @@
+<% if @client_record.errors.any? %>
+  $.notify(
+    "<%= @client_record.errors.full_messages.join('\n').html_safe %>",
+    'error'
+  );
+<% else %>
+  $('#clientRecords tbody').prepend(
+    '<%=
+      escape_javascript(
+        render partial: 'admin/client_records/table_row',
+        locals: { cr: @client_record,
+        crs: @client.client_records.order('created_at ASC')
+      })
+    %>')
+  $('#clientRecordModal').modal('hide');
+  $.notify(
+    'Created a new record for <%= @client.name.titleize %>',
+    'success'
+  );
+<% end %>

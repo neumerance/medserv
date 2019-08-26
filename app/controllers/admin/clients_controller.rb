@@ -2,7 +2,7 @@ class Admin::ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update]
 
   def index
-    @clients = Client.all.order('created_at ASC')
+    @clients = Client.all.includes(:client_records).order('created_at ASC')
   end
 
   def show

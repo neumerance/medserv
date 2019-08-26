@@ -1,0 +1,24 @@
+<div class="form-group">
+  <%= f.label :systolic %>
+  <%= f.text_field :systolic, placeholder: '120', class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :diastolic %>
+  <%= f.text_field :diastolic, placeholder: '80', class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :heart_rate %>
+  <%= f.text_field :heart_rate, placeholder: '102', class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :weight %>
+  <%= f.text_field :weight, placeholder: '56', class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :remarks, 'Remarks (to be filled by nurses)' %>
+  <%= f.text_area :remarks, placeholder: FFaker::Lorem.sentence, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :findings, 'Findings (to be filled by doctors)' %>
+  <%= f.text_area :findings, placeholder: FFaker::Lorem.sentence, class: 'form-control' %>
+</div>
