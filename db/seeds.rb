@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'ffaker'
 
-10.times do
+50.times do
   client = Client.create(
     name: FFaker::Name.name,
     birthdate: Date.today - [20, 22, 32, 56, 70].sample.years,
@@ -16,7 +16,7 @@ require 'ffaker'
     address: "#{FFaker::Address.secondary_address} #{FFaker::Address.street_address}"
   )
 
-  5.times do
+  25.times do
     ClientRecord.create(
       client: client,
       systolic: [110, 90, 150, 220, 87].sample,

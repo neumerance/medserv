@@ -1,0 +1,23 @@
+<%= form_tag admin_clients_path, remote: true, method: :get do %>
+  <div class="form-row">
+    <div class="col">
+      <%=
+        text_field_tag 'filters[name]',
+        params[:filters][:name],
+        class: 'form-control',
+        placeholder: 'Search by name'
+      %>
+    </div>
+    <div class="col">
+      <%=
+        text_field_tag 'filters[birthdate]',
+        params[:filters][:name],
+        class: 'form-control',
+        placeholder: 'Search by birthdate'
+      %>
+    </div>
+    <div class="col-auto">
+      <%= submit_tag 'search', class: 'btn btn-default btn-success', data: { disable_with: 'searching...' } %>
+    </div>
+  </div>
+<% end %>

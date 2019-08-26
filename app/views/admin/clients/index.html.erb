@@ -1,8 +1,11 @@
-<div class="d-flex justify-content-between">
-  <div>
-    <h1>Client</h1>
+<div class="d-flex justify-content-between row">
+  <div class="col">
+    <h1>Clients</h1>
   </div>
-  <div>
+  <div class="col-auto">
+    <%= render partial: 'search_form' %>
+  </div>
+  <div class="col-auto">
     <%=
       link_to 'Create New Client',
       url_for(action: :new),

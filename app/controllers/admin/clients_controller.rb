@@ -2,7 +2,11 @@ class Admin::ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update]
 
   def index
-    @clients = Client.all.includes(:client_records).order('created_at ASC')
+    @clients = Client.filter(filter_params)
+    respond_to do |f|
+      f.js
+      f.html
+    end
   end
 
   def show
@@ -35,5 +39,9 @@ class Admin::ClientsController < ApplicationController
 
   def allowed_params
     params.require(:client).permit!
+  end
+
+  def filter_params
+    params[:filters] ||= {}
   end
 end
