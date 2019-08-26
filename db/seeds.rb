@@ -10,7 +10,7 @@ require 'ffaker'
 50.times do
   client = Client.create(
     name: FFaker::Name.name,
-    birthdate: Date.today - [20, 22, 32, 56, 70].sample.years,
+    birthdate: (Date.today - [20, 22, 32, 56, 70].sample.years).strftime('%b %e %a'),
     contact_number: FFaker::PhoneNumber.short_phone_number,
     occupation: FFaker::Job.title,
     address: "#{FFaker::Address.secondary_address} #{FFaker::Address.street_address}"
