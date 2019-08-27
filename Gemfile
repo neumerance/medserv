@@ -70,3 +70,5 @@ gem 'popper_js'
 gem 'bootstrap', '~> 4.3.1'
 
 gem 'ffaker'
+
+gem "breadcrumbs_on_rails"

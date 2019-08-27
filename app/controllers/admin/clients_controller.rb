@@ -1,5 +1,6 @@
 class Admin::ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update]
+  add_breadcrumb 'Clients', :admin_clients_path
 
   def index
     @clients = Client.filter(filter_params)
@@ -10,6 +11,7 @@ class Admin::ClientsController < ApplicationController
   end
 
   def show
+    add_breadcrumb @client.name.titleize, admin_client_path(id: @client.id)
     @title = "Client #{@client.name.titleize}"
   end
 
