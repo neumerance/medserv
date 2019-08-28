@@ -1,6 +1,6 @@
  <%=
   link_to 'Create New Record',
-  new_admin_client_client_record_path(client_id: client.id),
+  new_client_client_record_path(client_id: client.id),
   class: 'btn btn-info mb-3',
   remote: true, method: :get,
   data: { disable_with: 'Please wait...' }
@@ -26,7 +26,7 @@
   <tbody>
     <% if client.client_records.any? %>
       <% client.client_records.order('created_at DESC').each do |cr| %>
-        <%= render partial: 'admin/client_records/table_row', locals: { cr: cr, crs: client.client_records } %>
+        <%= render partial: 'client_records/table_row', locals: { cr: cr, crs: client.client_records } %>
       <% end %>
     <% else %>
       <tr>

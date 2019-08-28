@@ -29,8 +29,8 @@
 
             <ul class="list-unstyled components">
                 <h4 class="text-center">MedServ</h4>
-                <li>
-                  <%= link_to 'Clients', admin_clients_path %>
+                <li class="<%= request.url =~ /clients/ ? 'active' : '' %>">
+                  <%= link_to 'Clients', clients_path %>
                 </li>
                 <li>
                     <a href="#admin" data-toggle="collapse" aria-expanded="<%= request.url =~ /admin/ ? true : false %>" class="dropdown-toggle <%= request.url =~ /admin/ ? 'collapse show' : '' %>">Admin</a>

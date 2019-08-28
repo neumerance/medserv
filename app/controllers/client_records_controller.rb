@@ -1,4 +1,4 @@
-class Admin::ClientRecordsController < ApplicationController
+class ClientRecordsController < ApplicationController
   before_action :set_client
   before_action :set_client_record, only: [:edit, :create, :update]
 

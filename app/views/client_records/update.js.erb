@@ -12,7 +12,7 @@
   prepend(
     '<%=
       escape_javascript(
-        render partial: 'admin/client_records/table_row',
+        render partial: 'client_records/table_row',
         locals: { cr: @client_record, crs: @client.client_records }
       )
     %>')

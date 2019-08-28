@@ -7,7 +7,7 @@
     <% if crs.last == cr && cr.has_todays_record? %>
     <%=
       link_to 'Edit',
-      edit_admin_client_client_record_path(client_id: @client.id, id: cr.id),
+      edit_client_client_record_path(client_id: @client.id, id: cr.id),
       class: 'btn btn-sm btn-warning mb-3',
       remote: true, method: :get,
       data: { disable_with: 'Please wait...' }

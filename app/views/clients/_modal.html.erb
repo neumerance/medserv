@@ -1,5 +1,5 @@
-<%= form_for [:admin, @client, @client_record], remote: true do |f| %>
-<div id="clientRecordModal" class="modal" tabindex="-1" role="dialog" data-backdrop="false">
+<%= form_for @client, remote: true do |f| %>
+<div id="clientModal" class="modal" tabindex="-1" role="dialog" data-backdrop="false">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,10 +9,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= render partial: '/admin/client_records/form', locals: { f: f } %>
+        <%= render partial: 'form', locals: { f: f } %>
       </div>
       <div class="modal-header">
-        <%= f.submit 'Save', class: 'btn btn-success', data: { disable_with: 'Please wait...' } %>
+        <%= f.submit class: 'btn btn-success', data: { disable_with: 'Please wait...' } %>
         <button class="btn btn-default" type="button" class="close" data-dismiss="modal" aria-label="Close">
           Cancel
         </button>
