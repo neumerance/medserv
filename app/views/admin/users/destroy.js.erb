@@ -1,0 +1,12 @@
+<% if @user.errors.any? %>
+  $.notify(
+    "<%= @user.errors.full_messages.join('\n').html_safe %>",
+    'error'
+  );
+<% else %>
+  $('#usersContainer table tbody').find('#user-<%= @user.id %>').remove()
+  $.notify(
+    'User <%= @user.email %> has been deleted',
+    'success'
+  );
+<% end %>

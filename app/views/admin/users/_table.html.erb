@@ -1,0 +1,19 @@
+<table class="table table-sm table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @users.any? %>
+      <% @users.each do |user| %>
+        <%= render partial: 'table_row', locals: { user: user } %>
+      <% end %>
+    <% else %>
+    <tr>
+      <td colspan="5">No records yet.</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

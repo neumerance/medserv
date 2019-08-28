@@ -29,22 +29,19 @@
 
             <ul class="list-unstyled components">
                 <h4 class="text-center">MedServ</h4>
-                <%# <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
-                </li> %>
                 <li>
                   <%= link_to 'Clients', admin_clients_path %>
+                </li>
+                <li>
+                    <a href="#admin" data-toggle="collapse" aria-expanded="<%= request.url =~ /admin/ ? true : false %>" class="dropdown-toggle <%= request.url =~ /admin/ ? 'collapse show' : '' %>">Admin</a>
+                    <ul class="collapse <%= request.url =~ /admin/ ? 'show' : '' %> list-unstyled" id="admin">
+                      <li>
+                        <%= link_to 'User Accounts', admin_users_path %>
+                      </li>
+                      <li>
+                          <a href="#">Migration</a>
+                      </li>
+                    </ul>
                 </li>
                 <li>
                   <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>

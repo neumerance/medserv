@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-between row">
+  <div class="col">
+    <h1>User Accounts</h1>
+  </div>
+  <div class="col-auto">
+    <%=
+      link_to 'Create New User',
+      url_for(action: :new),
+      class: 'btn btn-info',
+      remote: true, method: :get,
+      data: { disable_with: 'Please wait...' }
+    %>
+  </div>
+</div>
+<div id="usersContainer">
+  <%= render partial: 'table' %>
+</div>
+<div id="modalContainer">
+</div>

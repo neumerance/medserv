@@ -1,0 +1,15 @@
+<% if @user.errors.any? %>
+  $.notify(
+    "<%= @user.errors.full_messages.join('\n').html_safe %>",
+    'error'
+  );
+<% else %>
+  $('#usersContainer table tbody').find('#user-<%= @user.id %>').replaceWith(
+    '<%= escape_javascript(render partial: 'table_row', locals: { user: @user }) %>'
+  )
+  $('#userModal').modal('hide');
+  $.notify(
+    'User <%= @user.email %> has been updated',
+    'success'
+  );
+<% end %>
