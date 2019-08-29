@@ -26,7 +26,12 @@
   <tbody>
     <% if client.client_records.any? %>
       <% client.client_records.order('created_at DESC').each do |cr| %>
-        <%= render partial: 'client_records/table_row', locals: { cr: cr, crs: client.client_records } %>
+        <%= render partial: 'client_records/table_row',
+            locals: {
+              cr: cr,
+              is_latest_record: (client.latest_medical_record == cr) && cr.is_todays_record?
+            }
+          %>
       <% end %>
     <% else %>
       <tr>

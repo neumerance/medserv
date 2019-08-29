@@ -12,4 +12,12 @@ class Client < ApplicationRecord
     clients = clients.search_by_birthdate(filters[:birthdate]) if filters[:birthdate].present?
     clients
   end
+
+  def latest_medical_record
+    medical_records.first
+  end
+
+  def medical_records
+    client_records.order('created_at DESC')
+  end
 end

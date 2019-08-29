@@ -13,7 +13,11 @@
     '<%=
       escape_javascript(
         render partial: 'client_records/table_row',
-        locals: { cr: @client_record, crs: @client.client_records }
+        locals: {
+          cr: @client_record,
+          is_latest_record: (@client.latest_medical_record == @client_record) &&
+            @client_record.is_todays_record?
+        }
       )
     %>')
   $('#clientRecordModal').modal('hide');

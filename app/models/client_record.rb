@@ -6,7 +6,8 @@ class ClientRecord < ApplicationRecord
     "#{systolic}/#{diastolic}"
   end
 
-  def has_todays_record?
+  def is_todays_record?
+    created_at >  Time.now.beginning_of_day &&
     created_at < Time.now.end_of_day
   end
 end

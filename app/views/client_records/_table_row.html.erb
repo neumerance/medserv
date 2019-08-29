@@ -1,10 +1,10 @@
-<tr class="client-record-<%= cr.id %> <%= (crs.last == cr && cr.has_todays_record?) ? 'table-warning' : nil %>">
+<tr class="client-record-<%= cr.id %> <%= is_latest_record ? 'table-warning' : nil %>">
   <td><%= cr.blood_pressure %></td>
   <td><%= cr.heart_rate %> bpm</td>
   <td><%= cr.weight %> kgs</td>
   <td><%= cr.created_at.strftime('%b %e %a %I:%M %p') %></td>
   <td>
-    <% if crs.last == cr && cr.has_todays_record? %>
+    <% if is_latest_record %>
     <%=
       link_to 'Edit',
       edit_client_client_record_path(client_id: @client.id, id: cr.id),
@@ -16,7 +16,7 @@
   </td>
 </tr>
 <% if cr.findings.present? || cr.remarks.present? %>
-  <tr class="client-record-<%= cr.id %> <%= (crs.last == cr && cr.has_todays_record?) ? 'table-warning' : nil %>">
+  <tr class="client-record-<%= cr.id %> <%= is_latest_record ? 'table-warning' : nil %>">
     <td class="width-50-percent" colspan="3">
       <strong>Findings</strong>
       <div><%= cr.findings.try(:html_safe) %></div>
