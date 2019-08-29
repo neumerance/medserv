@@ -5,7 +5,8 @@ namespace :admin do
       email: 'admin@untvsg.com',
       password: 'ABC12abc',
       password_confirmation: 'ABC12abc',
-      name: 'UNTV admin'
+      name: 'UNTV admin',
+      role: 1
     )
     puts 'Admina account: admin@untvsg.com:ABC12abc, please change password immediately'
   end
