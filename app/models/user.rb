@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   enum role: [ :volunter, :admin ]
 
+  validates :name, presence: true
+
   def is_admin?
     role == 'admin'
   end
