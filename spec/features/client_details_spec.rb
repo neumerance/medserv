@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Client', js: true do
+feature 'Client Details', js: true do
   let(:user) { create(:user) }
   let!(:client) { create(:client) }
 
