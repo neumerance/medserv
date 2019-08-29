@@ -26,6 +26,7 @@ class ClientsController < ApplicationController
   end
 
   def edit
+    @client.birthdate = @client.birthdate.strftime('%Y-%m-%d')
     @title = "Updating #{@client.name.titleize}"
   end
 
@@ -37,7 +38,6 @@ class ClientsController < ApplicationController
 
   def set_client
     @client = Client.find(params[:id])
-    @client.birthdate = @client.birthdate.strftime('%Y%m%d')
   end
 
   def allowed_params

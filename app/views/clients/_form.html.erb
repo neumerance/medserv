@@ -4,7 +4,7 @@
 </div>
 <div class="form-group">
   <%= f.label :birthdate %>
-  <%= f.text_field :birthdate, placeholder: '2014-04-15', class: 'form-control date' %>
+  <%= f.text_field :birthdate, placeholder: '1987-04-15', class: 'form-control date' %>
 </div>
 <div class="form-group">
   <%= f.label :contact_number %>
@@ -18,9 +18,3 @@
   <%= f.label :address %>
   <%= f.text_field :address, placeholder: '#8 Commonwealth Lane 24434', class: 'form-control' %>
 </div>
-<script>
-  $(document).ready(function() {
-    $('input.date').mask('0000-00-00', { placeholder: "____-__-__", reverse: true });
-    $('input.phone').mask('0000-0000', { placeholder: "____-____", reverse: true });
-  });
-</script>
