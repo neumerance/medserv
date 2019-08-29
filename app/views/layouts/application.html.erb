@@ -28,10 +28,14 @@
             </div>
 
             <ul class="list-unstyled components">
-                <h4 class="text-center">MedServ</h4>
+                <div id="userPlacement">
+                  <h4><%= current_user.name.titleize %></h4>
+                  <span><%= current_user.role %></span>
+                </div>
                 <li class="<%= request.url =~ /clients/ ? 'active' : '' %>">
                   <%= link_to 'Clients', clients_path %>
                 </li>
+                <% if current_user.is_admin? %>
                 <li>
                     <a href="#admin" data-toggle="collapse" aria-expanded="<%= request.url =~ /admin/ ? true : false %>" class="dropdown-toggle <%= request.url =~ /admin/ ? 'collapse show' : '' %>">Admin</a>
                     <ul class="collapse <%= request.url =~ /admin/ ? 'show' : '' %> list-unstyled" id="admin">
@@ -43,6 +47,7 @@
                       </li>
                     </ul>
                 </li>
+                <% end %>
                 <li>
                   <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
                 </li>
