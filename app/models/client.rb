@@ -1,5 +1,5 @@
 class Client < ApplicationRecord
-  has_many :client_records
+  has_many :client_records, dependent: :destroy
   validates :name, :birthdate, :contact_number, :occupation, presence: true
 
   scope :search_by_name, -> (name) { where("name ILIKE ?", "%#{name}%") }
