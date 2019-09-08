@@ -1,3 +1,4 @@
+<%= f.hidden_field :country_dial_code %>
 <div class="form-group">
   <%= f.label :name %>
   <%= f.text_field :name, placeholder: 'Juan Dela Cruz', class: 'form-control' %>
@@ -8,7 +9,7 @@
 </div>
 <div class="form-group">
   <%= f.label :contact_number %>
-  <%= f.text_field :contact_number, placeholder: '+65 8814-7876', class: 'form-control phone' %>
+  <%= f.text_field :contact_number, class: 'form-control phone' %>
 </div>
 <div class="form-group">
   <%= f.label :occupation %>
@@ -18,3 +19,21 @@
   <%= f.label :address %>
   <%= f.text_field :address, placeholder: '#8 Commonwealth Lane 24434', class: 'form-control' %>
 </div>
+<script>
+  var input = document.querySelector('.phone');
+  var iti = window.intlTelInput(
+    input, {
+      initialCountry: 'sg',
+      preferredCountries: ['sg', 'ph', 'au', 'id', 'my', 'in']
+    }
+  );
+  input.addEventListener('countrychange', function() {
+    var selectedCountry = iti.getSelectedCountryData();
+    $('input[name="client[country_dial_code]"]').val(
+      selectedCountry.dialCode
+    );
+    $('.phone').mask('+' + selectedCountry.dialCode + '0#');
+  });
+  $('.date').mask('0000-00-00');
+  $('.phone').mask('+650#');
+</script>

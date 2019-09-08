@@ -1,4 +1,6 @@
 class Client < ApplicationRecord
+  attr_accessor :country_dial_code
+
   has_many :client_records, dependent: :destroy
   validates :name, :birthdate, :contact_number, :occupation, presence: true
 
@@ -19,5 +21,11 @@ class Client < ApplicationRecord
 
   def medical_records
     client_records.order('created_at DESC')
+  end
+
+  private
+
+  def append_country_dial_code
+    self.contact_number = "+#{country_dial_code}#{contact_number}"
   end
 end
