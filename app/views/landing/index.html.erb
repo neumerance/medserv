@@ -1,2 +1,53 @@
 <h1>Welcome to MedServ</h1>
 <p>A public service record management app</p>
+
+<h2>How to use?</h2>
+
+<ul class="mt-5">
+  <li>
+    <strong>Step 1:</strong>
+    <p>
+      <h4>Creating a Client</h4>
+      <ol>
+        <li>
+          Check if the client exists by searching using the search form.<br />
+          If user exists, please skip <strong>Step 1</strong> and proceed to <strong>Step 2</strong>
+        </li>
+        <li>
+          If the client does not exists yet, click <%= image_tag 'tutorials/create-new-client.png', height: 60 %>
+        </li>
+        <li>
+          Fill up the form with Clients information <strong>Note: Please make sure we can capture the clients number.</strong><br />
+          <i>We can use clients number for different purposes like for example sending mass invitation broadcast for Bible Expo via SMS.</i><br />
+          <%= image_tag 'tutorials/client-form', width: 300 %>
+        </li>
+        <li>
+          Once client is created, the client will show in the first row of the table.<br />
+          <%= image_tag 'tutorials/client-row', width: 600 %>
+        </li>
+        <li>
+          To add client medical record, click Details and proceed to <strong>Step 2</strong>.<br />
+          <%= image_tag 'tutorials/client-details-button.png', width: 600 %>
+        </li>
+      </ol>
+    </p>
+  </li>
+  <li>
+    <strong>Step 2:</strong>
+    <p>
+      <h4>Creating client medical record.</h4>
+      <ol>
+        <li>
+          Clicking <%= image_tag 'tutorials/details-button.png', height: 60 %> will bring you to the page below.<br />
+          <%= image_tag 'tutorials/client-page.png', width: 600 %>
+        </li>
+        <li>
+          Click <%= image_tag 'tutorials/create-client-record.png', width: 170 %> to create a new client record.<br />
+          <%= image_tag 'tutorials/create-new-client-record.png', width: 300 %><br />
+          <strong>Note: We create client record everytime they come and avail our medical services</strong>.<br />
+          <i>By doing so, we can track clients medical records so the Nurse | Doctors can advise the client affectively.</i>
+        </li>
+      </ol>
+    </p>
+  </li>
+</ul>
