@@ -72,3 +72,5 @@ gem 'ffaker'
 gem "breadcrumbs_on_rails"
 
 gem 'devise'
+
+gem 'fast_jsonapi'

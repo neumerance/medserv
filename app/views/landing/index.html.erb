@@ -1,53 +1,53 @@
 <h1>Welcome to MedServ</h1>
 <p>A public service record management app</p>
 
-<h2>How to use?</h2>
-
-<ul class="mt-5">
-  <li>
-    <strong>Step 1:</strong>
-    <p>
-      <h4>Creating a Client</h4>
-      <ol>
-        <li>
-          Check if the client exists by searching using the search form.<br />
-          If user exists, please skip <strong>Step 1</strong> and proceed to <strong>Step 2</strong>
-        </li>
-        <li>
-          If the client does not exists yet, click <%= image_tag 'tutorials/create-new-client.png', height: 60 %>
-        </li>
-        <li>
-          Fill up the form with Clients information <strong>Note: Please make sure we can capture the clients number.</strong><br />
-          <i>We can use clients number for different purposes like for example sending mass invitation broadcast for Bible Expo via SMS.</i><br />
-          <%= image_tag 'tutorials/client-form.png', width: 300 %>
-        </li>
-        <li>
-          Once client is created, the client will show in the first row of the table.<br />
-          <%= image_tag 'tutorials/client-row.png', width: 600 %>
-        </li>
-        <li>
-          To add client medical record, click Details and proceed to <strong>Step 2</strong>.<br />
-          <%= image_tag 'tutorials/client-details-button.png', width: 600 %>
-        </li>
-      </ol>
-    </p>
-  </li>
-  <li>
-    <strong>Step 2:</strong>
-    <p>
-      <h4>Creating client medical record.</h4>
-      <ol>
-        <li>
-          Clicking <%= image_tag 'tutorials/details-button.png', height: 60 %> will bring you to the page below.<br />
-          <%= image_tag 'tutorials/client-page.png', width: 600 %>
-        </li>
-        <li>
-          Click <%= image_tag 'tutorials/create-client-record.png', width: 170 %> to create a new client record.<br />
-          <%= image_tag 'tutorials/create-new-client-record.png', width: 300 %><br />
-          <strong>Note: We create client record everytime they come and avail our medical services</strong>.<br />
-          <i>By doing so, we can track clients medical records so the Nurse | Doctors can advise the client affectively.</i>
-        </li>
-      </ol>
-    </p>
-  </li>
-</ul>
+<div class="container">
+  <div class="d-flex">
+    <div class="card mr-3 mb-3">
+      <div class="card-body">
+        <div class="d-flex justify-content-center">
+          <div class="mr-3 align-self-center">
+            <div class="align-self-center">
+              <div class="d-flex flex-row">
+                <span class="fa fa-2x fa-arrow-circle-<%= @stats[:direction] %> align-self-center"></span>
+                <h1 class="display-4 mb-0 align-self-center"><%= @stats[:count] %></h1>
+              </div>
+              <div class="text-right">
+                <span class="mr-2"><%= @stats[:prev] %></span>|<span class="ml-2 mr-2"><%= @stats[:diff_percentage] %><span>
+              </div>
+            </div>
+          </div>
+          <div class="align-self-center">
+            <h5 class="card-title h3 mb-0">Medical Service</h5>
+            <p class="card-text">
+              <small class="text-muted">
+                <i class="fa fa-calendar"></i> <%= @stats[:range] %>
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mr-3 mb-3">
+      <div class="card-body">
+        <div class="d-flex justify-content-center">
+          <div class="mr-3 align-self-center">
+            <div class="align-self-center">
+              <div class="d-flex flex-row">
+                <span class="fa fa-2x fa-arrow-circle-up align-self-center"></span>
+                <h1 class="display-4 mb-0 align-self-center">0</h1>
+              </div>
+              <div class="text-right">
+                <span class="mr-2">0</span>|<span class="ml-2 mr-2">+0%<span>
+              </div>
+            </div>
+          </div>
+          <div class="align-self-center">
+            <h5 class="card-title h3 mb-0">Blood Donation Drive</h5>
+            <p class="card-text"><small class="text-muted"><i class="fa fa-calendar"></i> -- - --</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
